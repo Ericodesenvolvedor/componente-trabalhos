@@ -1,0 +1,167 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --hue: 237;
+    --fc-primary: hsl(0, 0%, 100%);
+    --fc-secondary: hsl(249, 50%, 80%);
+    --fc-dark: hsl(249, 100%, 11%);
+
+    --bg-primary: hsl(var(--hue), 22%, 20%);
+    --ff-primary: 'Epilogue', sans-serif;
+
+    --fs-body: 1.6rem;
+    --fs-heading: 4rem;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg-primary);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    color: var(--fc-primary);
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.page {
+    max-width: 33rem;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-top: 10rem;
+
+    animation: topDown 700ms;
+}
+
+header p {
+    font-weight: 400;
+    color: var(--fc-secondary);
+    text-transform: uppercase;
+    margin-bottom: 1.7rem;
+    line-height: 3.2rem;
+    letter-spacing: 3px;
+}
+
+header h1 {
+    font-weight: 800;
+    color: var(--fc-primary);
+    font-size: var(--fs-heading);
+    line-height: 4.8rem;
+    margin-bottom: 8rem;
+}
+
+main {
+    display: grid;
+    gap: 3.2rem;
+
+    animation: downTop 700ms 350ms reverse backwards;
+}
+
+.card {
+    position: relative;
+}
+
+.card img {
+    height: 41.6rem;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: all 200ms;
+}
+
+
+.card img:hover {
+    transform: scale(1.1);
+    opacity: 0.4;
+    filter: none;
+}
+
+.card h2 {
+    position: absolute;
+    bottom: 5.1rem;
+    left: 2.8rem;
+    font-size: 4rem;
+    font-weight: 800;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.3rem;
+}
+
+.card h2 span {
+    display: inline-flex;
+    align-items: center;
+    
+    width: fit-content;
+    height: 3.8rem;
+
+    font-weight: 400;
+    font-size: var(--fs-body);
+    line-height: 3.2rem;
+    
+    color: var(--fc-dark);
+    
+    padding: 0 1.6rem;
+    background-color: var(--fc-primary);
+    border-radius: 2rem;
+}
+
+@keyframes topDown {
+    0% {
+        transform: translateY(-15);
+        opacity: 0;
+    }
+    
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes downTop {
+    100% {
+        transform: translateY(15);
+        opacity: 0;
+    }
+}
+
+
+
+@media screen and (min-width: 700px){
+    :root {
+        --fs-heading: 5.6rem;
+    }
+
+    .page {
+        max-width: 117rem;
+        padding: 0 5rem;
+    }
+
+    main {
+        grid-template-areas: "A B B" "C C D";
+    }
+
+    main div:nth-child(1) {
+        grid-area: A;
+    }
+
+    main div:nth-child(2) {
+        grid-area: B;
+    }
+
+    main div:nth-child(3) {
+        grid-area: C;
+    }
+
+    main div:nth-child(4) {
+        grid-area: D;
+    }
+}
